@@ -9,11 +9,13 @@ For external storage, a pointer to the external data is assigned to the `rbnode-
 
 To control how the tree frees, or refrains from freeing, the data, the `destroy` parameter to the `rbdestory()` function is either `NULL` (external-storage, user responsible for freeing memory) or a function pointer to a function that frees the memory as required (internal-storage). The function type for the destroy function is `void (*)(void *)`.
 
-As a feature and convenience for freeing externally-stored data, the `rbdestroy()` function returns a pointer to the `node->data` member for the node that was removed. If the data object has allocated storage duration and is no longer required, you can simply pass the return to `free()`, e.g.
+As a feature and convenience for freeing internally-stored data, the `rbdelete()` function returns a pointer to the `node->data` member for the node that was removed. To free the memory alocated by the tree, simply pass the return to `free()`, To find and remove the node where, e.g. `target = 93;`:
 
-      free (rbdestroy (tree, NULL));
+        if ((victim = rbfind (tree, &target))) {
+          free (rbdelete (tree, victim));
+        }
 
-(**note:** the data object must not be part of an allocated collection of objects, e.g. with an address in the middle of a larger allocated block)
+(**note:** care must be taken if freeing external data returned by `rbdelete()`, the data object must not be part of an allocated collection of objects, e.g. with an address in the middle of a larger allocated block)
 
 **The redblack-test Program**
 

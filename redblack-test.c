@@ -277,7 +277,7 @@ int main (int argc, char **argv)
   printf ("\n deleting node '%d' in tree:\n", target);
   if ((newNode = rbfind (tree, &target))) {
 #ifndef EXTERNALSTRG
-    free (rbdelete (tree, newNode));       /*assignment */
+    free (rbdelete (tree, newNode));
 #else
     rbdelete (tree, newNode);
 #endif
