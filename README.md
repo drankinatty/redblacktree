@@ -29,7 +29,9 @@ See the top of `redblack-test.c` for compiling instructions for `gcc`. A basic c
 
     $ gcc -Wall -Wextra -pedantic -Wshadow -Werror -std=c11 -Ofast redblack.c -o redblack-test redblack-test.c
 
-It compiles without issue on MinGW or VS (`cl.exe`).
+It compiles without issue on MinGW or VS (`cl.exe`). An example of a roughly equivalent compile string for VS would be:
+
+    >cl /nologo /W3 /wd4244 /WX /Ox /Feredblack-test /TC redblack-test.c redblack.c
 
 **Feedback**
 
