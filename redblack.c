@@ -385,7 +385,7 @@ rbnode *rbmin (rbtree *tree)
 }
 
 /*
- * rbmin - find the node with the minimum key value in tree.
+ * rbmax - find the node with the maximum key value in tree.
  */
 rbnode *rbmax (rbtree *tree)
 {

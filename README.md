@@ -7,7 +7,7 @@ This implementation of a redblack tree written in C was adapted from MIT by Appl
 
 For external storage, a pointer to the external data is assigned to the `rbnode->data` member. For internal storage, the implementation will allocate a specified number of bytes and copy the data to the `node->data` pointer. To control what storage scheme is used, if the `typesz` parameter to the `rbinsert()` function is non-zero, internal-storage is used. Passing `0` for the `typesize` parameter invokes the external-storage scheme and the pointer to the data provided is simply assigned.
 
-To control how the tree frees, or refrains from freeing, the data, the `destroy` parameter to the `rbdestory()` function is either `NULL` (external-storage, user responsible for freeing memory) or a function pointer to a function that frees the memory as required (internal-storage). The function type for the destroy function is `void (*)(void *)`.
+To control how the tree frees, or refrains from freeing, the data, the `destroy` parameter to the `rbdestroy()` function is either `NULL` (external-storage, user responsible for freeing memory) or a function pointer to a function that frees the memory as required (internal-storage). The function type for the destroy function is `void (*)(void *)`.
 
 As a feature and convenience for freeing internally-stored data, the `rbdelete()` function returns a pointer to the `node->data` member for the node that was removed. To free the memory alocated by the tree, simply pass the return to `free()`, To find and remove the node where, e.g. `target = 93;`:
 
