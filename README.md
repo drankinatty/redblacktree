@@ -27,9 +27,15 @@ By default the redblack-test program creates a 10-node tree using random numbers
 
 **Compiling**
 
+A `Makefile` is provided for `gcc`, so using `gcc` you can simply type:
+
+```bash
+make
+```
+
 See the top of `redblack-test.c` for compiling instructions for `gcc`. A basic compile string of the following will work fine:
 
-    $ gcc -Wall -Wextra -pedantic -Wshadow -Werror -std=c11 -Ofast redblack.c -o redblack-test redblack-test.c
+    $ gcc -Wall -Wextra -pedantic -Wshadow -Werror -std=c11 -O3 redblack.c -o redblack-test redblack-test.c
 
 It compiles without issue on MinGW or VS (`cl.exe`). An example of a roughly equivalent compile string for VS would be:
 
